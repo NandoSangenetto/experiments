@@ -1,0 +1,115 @@
+body, html{
+    height:100%;
+}
+body{
+    padding:0;
+    margin:0;
+    font-family:'helvetica neue', helvetica, arial, sans-serif;
+}
+h1, p, li{
+    color:#222;
+    margin:0 0 1em;
+}
+.main-content li{
+    margin:0 0 10px;
+}
+h1{
+    font-size:2.5em;
+    font-weight:300;
+}
+p{
+    font-size:1em;
+    line-height:1.5em;
+}
+.wrapper {
+    overflow:hidden;
+}
+.main-content {
+    padding:30px 30px 30px 80px;
+    transition:all 200ms ease-in;
+    transform: translateY(0);
+    will-change: transform;
+}
+.nav {
+    position:fixed;
+    top:0;
+    width:250px;
+    height:100%;
+    transition: margin 200ms ease-in;
+    transform: translateY(0);
+    will-change: transform;
+    z-index: 9;
+}
+.left-nav {
+    margin:0 0 0 -250px;
+    left:0;
+}
+.right-nav {
+    margin:0 -250px 0 0;
+    right:0;
+}
+.nav ul {
+    width:250px;
+    height:100%;
+    padding:0;
+    margin:0;
+    list-style:none;
+    background:#222;
+    overflow:hidden;
+}
+.nav li {
+    margin:0;
+}
+.nav a {
+    color:#fff;
+    font-size:1em;
+    text-decoration:none;
+    display:block;
+    padding:12px 15px;
+    font-weight:300;
+    letter-spacing:2px;
+    border-bottom:1px solid #333;
+}
+.trigger {
+    display:block;
+    font-weight:700;
+    background:#1ea1b8;
+    width:42px;
+    height:42px;
+    line-height:42px;
+    color:#fff;
+    text-align:center;
+    font-size:2em;
+    line-height:1.1em;
+    position:fixed;
+    z-index:500;
+    top:10px;
+}
+.left-trigger {
+    left:10px;
+    transition: left 200ms ease-in;
+}
+.right-trigger {
+    right:10px;
+    transition: right 200ms ease-in;
+}
+#left-trigger,
+#right-trigger {
+    display:none;
+}
+#left-trigger:checked ~ .left-nav,
+#right-trigger:checked ~ .right-nav {
+    margin:0;
+}
+#left-trigger:checked ~ .left-trigger {
+    left:260px;
+}
+#right-trigger:checked ~ .right-trigger {
+    right:260px;
+}
+#left-trigger:checked ~ .main-content {
+    transform:translate3d(260px, 0, 0);
+}
+#right-trigger:checked ~ .main-content {
+    transform:translate3d(-260px, 0, 0);
+}
