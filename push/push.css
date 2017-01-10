@@ -26,7 +26,7 @@ p{
 }
 .main-content {
     padding:30px 30px 30px 80px;
-    transition:all 200ms ease-in;
+    transition:all 200ms ease 0s;
     transform: translateY(0);
     will-change: transform;
 }
@@ -35,18 +35,17 @@ p{
     top:0;
     width:250px;
     height:100%;
-    transition: margin 200ms ease-in;
     transform: translateY(0);
     will-change: transform;
     z-index: 9;
 }
 .left-nav {
-    margin:0 0 0 -250px;
-    left:0;
+    transition: left 200ms ease 0s;
+    left:-250px;
 }
 .right-nav {
-    margin:0 -250px 0 0;
-    right:0;
+    transition: right 200ms ease 0s;
+    right:-250px;
 }
 .nav ul {
     width:250px;
@@ -87,19 +86,23 @@ p{
 }
 .left-trigger {
     left:10px;
-    transition: left 200ms ease-in;
+    transition: left 200ms ease 0s;
 }
 .right-trigger {
     right:10px;
-    transition: right 200ms ease-in;
+    transition: right 200ms ease 0s;
 }
 #left-trigger,
 #right-trigger {
     display:none;
 }
-#left-trigger:checked ~ .left-nav,
+#left-trigger:checked ~ .left-nav {
+    left:0;
+    // margin:0;
+}
 #right-trigger:checked ~ .right-nav {
-    margin:0;
+    right:0;
+    // margin:0;
 }
 #left-trigger:checked ~ .left-trigger {
     left:260px;
