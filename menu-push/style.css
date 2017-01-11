@@ -10,7 +10,7 @@ h1, p, li{
     color:#222;
     margin:0 0 1em;
 }
-.main-article li{
+article li{
     margin:0 0 10px;
 }
 h1{
@@ -25,12 +25,11 @@ p{
     overflow:hidden;
 }
 .main-content {
-    transition:all 200ms ease 0s;
+    transition: transform 200ms ease 0s;
     transform: translateY(0);
     will-change: transform;
-}
-.main-article {
-    margin:30px 30px 30px 80px;
+    padding:30px 30px 30px 80px;
+    position: relative;
 }
 .nav {
     position:fixed;
@@ -82,7 +81,7 @@ p{
     text-align:center;
     font-size:2em;
     line-height:1.1em;
-    position:fixed;
+    position:absolute;
     z-index:500;
     top:10px;
 }
@@ -100,11 +99,9 @@ p{
 }
 #left-trigger:checked ~ .left-nav {
     left:0;
-    // margin:0;
 }
 #right-trigger:checked ~ .right-nav {
     right:0;
-    // margin:0;
 }
 #left-trigger:checked ~ .left-trigger {
     left:260px;
@@ -113,8 +110,8 @@ p{
     right:260px;
 }
 #left-trigger:checked ~ .main-content {
-    transform:translate3d(260px, 0, 0);
+    transform:translateX(260px);
 }
 #right-trigger:checked ~ .main-content {
-    transform:translate3d(-260px, 0, 0);
+    transform:translateX(-260px);
 }
