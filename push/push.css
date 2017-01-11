@@ -10,7 +10,7 @@ h1, p, li{
     color:#222;
     margin:0 0 1em;
 }
-.main-content li{
+.main-article li{
     margin:0 0 10px;
 }
 h1{
@@ -25,10 +25,12 @@ p{
     overflow:hidden;
 }
 .main-content {
-    padding:30px 30px 30px 80px;
     transition:all 200ms ease 0s;
     transform: translateY(0);
     will-change: transform;
+}
+.main-article {
+    margin:30px 30px 30px 80px;
 }
 .nav {
     position:fixed;
