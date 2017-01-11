@@ -1,5 +1,6 @@
 body, html{
     height:100%;
+    -webkit-overflow-scrolling: auto;
 }
 body{
     padding:0;
@@ -28,8 +29,25 @@ p{
     transition: transform 200ms ease 0s;
     transform: translateY(0);
     will-change: transform;
-    padding:30px 30px 30px 80px;
     position: relative;
+}
+.main-content > .no-scroll-mask {
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background: #e8e8e8;
+    transition: all 1s ease 0s;
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+}
+.main-content article {
+    padding: 30px 60px 30px 60px;
 }
 .nav {
     position:fixed;
@@ -109,9 +127,18 @@ p{
 #right-trigger:checked ~ .right-trigger {
     right:260px;
 }
+#left-trigger:checked ~ .main-content,
+#right-trigger:checked ~ .main-content {
+    height: 100%;
+}
 #left-trigger:checked ~ .main-content {
-    transform:translateX(260px);
+    transform:translateX(250px);   
+}
+#right-trigger:checked ~ .main-content > .no-scroll-mask,
+#left-trigger:checked ~ .main-content > .no-scroll-mask {
+    display: block;
+    opacity: .7;
 }
 #right-trigger:checked ~ .main-content {
-    transform:translateX(-260px);
+    transform:translateX(-250px);
 }
