@@ -39,12 +39,10 @@ p{
     left: 0;
     height: 100%;
     background: #e8e8e8;
-    transition: all 1s ease 0s;
     opacity: 0;
     position: absolute;
     overflow: hidden;
     overflow-y: scroll;
-    height: 100vh;
 }
 .main-content article {
     padding: 30px 60px 30px 60px;
@@ -137,7 +135,7 @@ p{
 #right-trigger:checked ~ .main-content > .no-scroll-mask,
 #left-trigger:checked ~ .main-content > .no-scroll-mask {
     display: block;
-    opacity: .7;
+    opacity: .4;
 }
 #right-trigger:checked ~ .main-content {
     transform:translateX(-250px);
