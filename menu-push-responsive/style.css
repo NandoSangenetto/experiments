@@ -1,0 +1,230 @@
+body, html{
+    height:100%;
+    -webkit-overflow-scrolling: auto;
+}
+body{
+    padding:0;
+    margin:0;
+    font-family:'helvetica neue', helvetica, arial, sans-serif;
+}
+h1, p, li{
+    color:#222;
+    margin:0 0 1em;
+}
+article li{
+    margin:0 0 10px;
+}
+h1{
+    font-size:2.5em;
+    font-weight:300;
+}
+p{
+    font-size:1em;
+    line-height:1.5em;
+}
+.check-trigger {
+    display: none;
+}
+.wrapper {
+    overflow:hidden;
+}
+#main-content {
+    transition: transform 300ms ease;
+    transform: translateY(0);
+    will-change: transform;
+}
+#main-content article {
+    padding: 30px 60px 30px 60px;
+}
+.nav {
+    position:fixed;
+    top:0;
+    width:250px;
+    height:100%;
+    transform: translateY(0);
+    will-change: transform;
+    z-index: 9;
+}
+.left-nav {
+    transition: left 300ms ease;
+    left:-260px;
+    box-shadow: 2px 0 5px #e8e8e8;
+}
+.right-nav {
+    transition: right 300ms ease;
+    right:-250px;
+}
+.nav .nav-list {
+    width:250px;
+    height:100%;
+    padding:0;
+    margin:0;
+    list-style:none;
+    padding:6px;
+    background:#fafafa;
+    overflow:hidden;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.nav .nav-item,
+.nav .subnav-item {
+    margin:0;
+}
+.nav .nav-link,
+.nav .subnav-link {
+    position: relative;
+    color: #626262;
+    text-transform: uppercase;
+    font-size:0.875em;
+    text-decoration:none;
+    display:block;
+    font-weight:600;
+    padding:12px 35px 12px 15px; 
+    border-bottom: 5px solid #fff;
+}
+.nav .subnav-link {
+    color: rgb(104, 200, 224);
+    font-weight: 400;
+}
+.nav .nav-drop-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 35px;
+    height:100%;
+}
+.nav .nav-drop-icon:before,
+.nav .nav-drop-icon:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 16px;
+    width: 4px;
+    background: rgb(104, 200, 224);;
+    top:12px;
+    transition: transform 100ms ease;
+}
+
+.nav .nav-drop-icon:before {
+    transform: rotate(-45deg);
+    left:10px;
+}
+.nav .nav-drop-icon:after {
+    transform: rotate(45deg);
+    left:20px;
+}
+.nav input[type="checkbox"]:checked ~ .nav-link > .nav-drop-icon:before {
+    transform: rotate(-135deg);
+}
+.nav input[type="checkbox"]:checked ~ .nav-link > .nav-drop-icon:after {
+    transform: rotate(135deg);
+}
+.nav .subnav-list {
+    display: none;
+    color:#fff;
+    margin: 0;
+    padding: 0;
+}
+.nav input[type="checkbox"]:checked ~ .subnav-list {
+    display: block;
+}
+.trigger {
+    display:block;
+    font-weight:700;
+    width:44px;
+    height:45px;
+    line-height:42px;
+    color:#fff;
+    text-align:center;
+    font-size:2em;
+    line-height:1.1em;
+    position:absolute;
+    z-index:9;
+    top:10px;
+    will-change: transform;
+    transform: translateY(0);
+}
+.trigger:before,
+.trigger > span,
+.trigger:after {
+    content: '';
+    display: block;
+    background: rgb(104, 200, 224);
+    width: 30px;
+    height: 5px;
+    position: absolute;
+    left:7px;
+    top:10px;
+    z-index:1;
+    transition: all 400ms ease;
+}
+.trigger > span {
+    top:20px;
+    z-index: 0;
+}
+.trigger:after {
+    top:30px;
+}
+.left-trigger {
+    left:10px;
+    transition: left 300ms ease;
+}
+.right-trigger {
+    right:10px;
+    transition: right 300ms ease;
+}
+#left-trigger:checked ~ .left-nav {
+    left:0;
+}
+#right-trigger:checked ~ .right-nav {
+    right:0;
+}
+#left-trigger:checked ~ #main-content > .left-trigger:before {
+    transform: rotate(-45deg);
+    width: 20px;
+    top: 14px;
+    left: 10px;
+    background: rgb(255,255,255);
+    border-radius: 5px;
+}
+#left-trigger:checked ~ #main-content > .left-trigger > span{
+    opacity: 1;
+    width: 45px;
+    height: 45px;
+    top:0;
+    left: 0;
+    background: rgb(104, 200, 224);
+    border-radius: 45px;
+}
+#left-trigger:checked ~ #main-content > .left-trigger:after {
+    transform: rotate(45deg);
+    width: 20px;
+    top: 25px;
+    left: 10px;
+    background: rgb(255,255,255);
+    border-radius: 5px;
+}
+#left-trigger:checked ~ #main-content {
+    transform:translateX(250px);   
+}
+#right-trigger:checked ~ #main-content {
+    transform:translateX(-250px);
+}
+
+@media(min-width: 768px) {
+    .nav {
+        position:static;
+        height: 52px;
+        z-index: 0;
+        transform: none;
+        width: 100%;
+        top: auto;
+        right: auto;
+    }
+    .nav .nav-drop-icon {
+        display: none;
+    }
+    .left-trigger {
+       display: none;
+    }
+}

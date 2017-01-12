@@ -113,6 +113,10 @@ p{
 #right-trigger:checked ~ .right-trigger {
     right:260px;
 }
+#left-trigger:checked ~ #main-content,
+#right-trigger:checked ~ #main-content {
+    height: 100vh;
+}
 #left-trigger:checked ~ #main-content {
     transform:translateX(250px);   
 }
